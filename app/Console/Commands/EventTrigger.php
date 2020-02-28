@@ -56,7 +56,7 @@ class EventTrigger extends Command
 		$users = User::all();
         foreach ($users as $user) {
             Mail::raw("Scheduler Working Now -> {$current_msg}", function ($mail) use ($user) {
-                $mail->from('shailendra.yadava@srijan.net');
+                $mail->from(env('MAIL_FROM_ADDRESS'));
                 $mail->to($user->email)
                     ->subject('Triggered Event');
             });

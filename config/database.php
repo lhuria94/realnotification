@@ -31,15 +31,7 @@ return [
     |
     */
     
-    
-//    DB_CONNECTION=sqlsrv
-//DB_HOST=127.0.0.1
-//DB_PORT=3306
-//DB_DATABASE=Crown
-//DB_USERNAME=srijan_user
-//DB_PASSWORD=sURsTgCww_2018
-
-    'connections' => [
+     'connections' => [
 
         'sqlite' => [
             'driver' => 'sqlite',
