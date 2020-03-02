@@ -9,6 +9,7 @@ use Illuminate\Broadcasting\PresenceChannel;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
+use Pusher\PushNotifications\PushNotifications;
 
 class StatusLiked implements ShouldBroadcast
 {
@@ -18,6 +19,7 @@ class StatusLiked implements ShouldBroadcast
 
     public $message;
 
+    public $beams;
     /**
      * Create a new event instance.
      *
@@ -27,16 +29,16 @@ class StatusLiked implements ShouldBroadcast
     {
         $this->username = $username;
         $msg = ucwords($msg);
-        $this->message  = "Current Event {$msg}";
+        $this->message  = $msg;
     }
 
-    /**
-     * Get the channels the event should broadcast on.
-     *
-     * @return Channel|array
-     */
     public function broadcastOn()
     {
-        return ['status-liked'];
+        return new Channel('auth-request');
+    }
+
+    public function broadcastAs()
+    {
+        return 'key-dispatched';
     }
 }

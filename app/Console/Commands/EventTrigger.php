@@ -49,14 +49,14 @@ class EventTrigger extends Command
             'elegy' => 'a mournful poem; a lament for the dead',
             'ostensible' => 'appearing as such but not necessarily so'
         ];
-         
+
         // Finding a random word
         $key = array_rand($words);
         $value = $words[$key];
 		$users = User::all();
         foreach ($users as $user) {
             Mail::raw("Scheduler Working Now -> {$current_msg}", function ($mail) use ($user) {
-                $mail->from(env('MAIL_FROM_ADDRESS'));
+                $mail->from('pravin.raj@srijan.net');
                 $mail->to($user->email)
                     ->subject('Triggered Event');
             });

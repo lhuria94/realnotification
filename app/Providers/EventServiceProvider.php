@@ -16,6 +16,9 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\AuthLoginEventHandler' => [
             'App\Listeners\RouterMatchedListener',
         ],
+        'App\Events\StatusLiked' => [
+            'App\Listeners\StatusLikedListener',
+        ],
 //        'auth.login' => [
 //            'App\Handlers\Events\AuthLoginEventHandler',
 //        ],
