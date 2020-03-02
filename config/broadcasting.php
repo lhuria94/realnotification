@@ -32,14 +32,17 @@ return [
 
         'pusher' => [
             'driver' => 'pusher',
-            'key' => '64652d3ddb6261181fc2',
-            'secret' => 'c5ca3e0041e4392e6239',
-            'app_id' => '943527',
+            'key' => 'd5a2b845c0ba62a7e03e',
+            'secret' => 'a2bc1ce4c9df34f8a53e',
+            'app_id' => '955393',
             'options' => [
                'cluster' => 'ap2'
             ],
+            'beams' => [
+                'secret_key' => env('PUSHER_BEAMS_SECRET_KEY'),
+                'instance_id' => env('PUSHER_BEAMS_INSTANCE_ID'),
+            ]
         ],
-
         'redis' => [
             'driver' => 'redis',
             'connection' => 'default',
